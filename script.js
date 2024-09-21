@@ -1,10 +1,10 @@
 console.log("JS is loading successfully");
 
-//Changing the title of website - <title> 
+//Changing the title of website - <title>
 document.title = "My Pizza Store";
 console.log(document.title);
 
-// //Accessing a HTML element using its ID 
+// //Accessing a HTML element using its ID
 // let bannerText = document.getElementById("banner-text");
 // console.log(bannerText);
 
@@ -30,13 +30,12 @@ console.log(document.title);
 
 // changeText();
 
-
 // ------ Changing the greeting message based on the username -----
-// Specify the username or leave it blank to simulate a guest
-let userName = "Valeria";
-let welcomeMessage = document.getElementById("welcome-message");
+// // Specify the username or leave it blank to simulate a guest
+// let userName = "Valeria";
+// let welcomeMessage = document.getElementById("welcome-message");
 
-// // Conditional to check if userName is assigned or not 
+// // Conditional to check if userName is assigned or not
 // if(userName){
 //     console.log(userName);
 //     welcomeMessage.innerText = "Welcome, " + userName + "!";
@@ -51,7 +50,7 @@ let welcomeMessage = document.getElementById("welcome-message");
 //     let aboutSection = document.querySelector(".about");
 //     // console.log(aboutSection);
 //     aboutSection.insertAdjacentElement("afterend", specialOffer);
-//     // Appending the newly created element to the body 
+//     // Appending the newly created element to the body
 //     // document.body.appendChild(specialOffer);
 
 // }
@@ -74,9 +73,6 @@ let welcomeMessage = document.getElementById("welcome-message");
 //     specialitySection.remove();
 // }
 
-
-
-
 // ------- DOM - DAY 2 ------
 // ---- getElementsByClassName ----
 // let navLinks = document.getElementsByClassName('nav-link');
@@ -88,12 +84,11 @@ let welcomeMessage = document.getElementById("welcome-message");
 
 // // ---- getElementsByTagName and color all the h2 headings to Blue ----
 
-
 // // ---- Attributes ----
 // let offerImage = document.createElement("img");
 // offerImage.setAttribute("src","https://plus.unsplash.com/premium_photo-1679924471066-dd984e92f395?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 // console.log(offerImage.getAttribute("src"));
-// // 1st Approach: Use inline styling 
+// // 1st Approach: Use inline styling
 // // offerImage.style.width = "300px";
 // // offerImage.style.display = "block";
 // // offerImage.style.margin = "0 auto";
@@ -108,7 +103,7 @@ let welcomeMessage = document.getElementById("welcome-message");
 // document.body.appendChild(offerImage);
 
 // ----- EVENTS -----
-// 1. Event Handling 
+// 1. Event Handling
 // let viewButton = document.querySelectorAll('.cta-btn');
 // console.log(viewButton);
 // // let ctaBtn = document.getElementsByClassName('cta-btn');
@@ -119,26 +114,54 @@ let welcomeMessage = document.getElementById("welcome-message");
 //     }
 // }
 
+// ---- EVENT HANDLER- An object can have only 1 event attached to it ----
+//let viewButton = document.getElementById('view-btn');
+// console.log(viewButton);
 
-// ---- EVENT HANDLER ----
-let viewButton = document.getElementById('view-btn');
-console.log(viewButton);
+// viewButton.onclick = () =>{
+//     console.log("I am clicked!");
+// }
 
-viewButton.onclick = () =>{
-    console.log("I am clicked!");
-}
+// viewButton.onclick = () =>{
+//     console.log("I am clicked again!");
+// }
 
-viewButton.onclick = () =>{
-    console.log("I am clicked again!");
-}
+// viewButton.onclick = () =>{
+//     console.log("I am clicked again and again!");
+// }
 
-viewButton.onclick = () =>{
-    console.log("I am clicked again and again!");
-}
+// ----- EVENT LISTENERS ------
+// ---- 1 object can have multiple events attached to it -----
+// viewButton.addEventListener("click", () => {
+//     console.log("Thank you!!!")
+// })
 
+// viewButton.addEventListener("click", () => {
+//     console.log("Thank you again!!!")
+// })
 
+// viewButton.addEventListener("click", () => {
+//     console.log("Thank you again and again!!!")
+// })
 
-
-
-
-
+// --- EVENT Handling for pizza form ----
+let orderForm = document.getElementById("pizza-order-form");
+console.log(orderForm); //for debugging
+orderForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // Stops the form from reloading
+  
+  // Add validation for the phone number field - length should be 10
+  let phone = document.getElementById("phone").value;
+  
+  //Validate phone number length to be exactly 10
+  if (phone.length !== 10) {
+    // Show validation message
+    alert("Phone number must be exactly 10 digits");
+  } 
+  else {
+    // Show thank you message
+    document.getElementById("thank-you-msg").style.display = "block";
+    // Reset the form fields
+    orderForm.reset();
+  }
+});
