@@ -147,6 +147,8 @@ console.log(document.title);
 // --- EVENT Handling for pizza form ----
 let orderForm = document.getElementById("pizza-order-form");
 console.log(orderForm); //for debugging
+
+
 orderForm.addEventListener("submit", (e) => {
   e.preventDefault(); // Stops the form from reloading
   
