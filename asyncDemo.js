@@ -98,50 +98,56 @@
 
 // ----- PROMISES CHAINING -----
 // STEP 1: Order pizza (returns a promise)
-const orderPizza = function () {
-  return new Promise((resolve, reject) => {
-    let pizzaDelivered = true;
-    setTimeout(() => {
-      if (pizzaDelivered) {
-        resolve("Pizza is delivered to you!");
-      } else {
-        reject("Not delivered, sorry");
-      }
-    }, 1000);
-  });
-};
+// const orderPizza = function () {
+//   return new Promise((resolve, reject) => {
+//     let pizzaDelivered = true;
+//     setTimeout(() => {
+//       if (pizzaDelivered) {
+//         resolve("Pizza is delivered to you!");
+//       } else {
+//         reject("Not delivered, sorry");
+//       }
+//     }, 1000);
+//   });
+// };
 
-// STEP 2: Serve pizza (returns a promise)
-const servePizza = function(){
-    return new Promise((resolve) =>{
-        setTimeout( () =>{
-            resolve("Pizza is served to the guests!")
-        }, 2000);
-    })
-}
+// // STEP 2: Serve pizza (returns a promise)
+// const servePizza = function(){
+//     return new Promise((resolve) =>{
+//         setTimeout( () =>{
+//             resolve("Pizza is served to the guests!")
+//         }, 2000);
+//     })
+// }
 
-// STEP 3: Clean Up (returns a promise)
-const cleanUp = function(){
-    return new Promise((resolve) =>{
-        setTimeout( () =>{
-            resolve("Cleaned Up after the party!")
-        }, 2000);
-    })
-}
+// // STEP 3: Clean Up (returns a promise)
+// const cleanUp = function(){
+//     return new Promise((resolve) =>{
+//         setTimeout( () =>{
+//             resolve("Cleaned Up after the party!")
+//         }, 2000);
+//     })
+// }
 
-// Chain the promises together
-orderPizza()
-.then((message) => {
-    console.log(message);
-    return servePizza();
-})
-.then((message) =>{
-    console.log(message);
-    return cleanUp();
-})
-.then((message) => {
-    console.log(message);
-})
-.catch((error) =>{
-    console.log(error);
-})
+// // Chain the promises together
+// orderPizza()
+// .then((message) => {
+//     console.log(message);
+//     return servePizza();  // returns the next promise
+// })
+// .then((message) =>{
+//     console.log(message);
+//     return cleanUp(); // returns the next promise
+// })
+// .then((message) => {
+//     console.log(message);
+// })
+// .catch((error) =>{
+//     console.log(error); // Handle any error from any step
+// })
+// .finally(() => {
+//     console.log("Partyy Over!!!!")
+// })
+
+// ------ using Fetch API -------
+
